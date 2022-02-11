@@ -1,5 +1,5 @@
-name: 'SecureStack Log4j Vulnerability Analysis'
-description: 'Scans your application for the presence of serious vulnerabilities in Log4j'
+name: 'SecureStack All-In-One GitHub Action'
+description: 'Scans your application for secrets, vulenrable third-party libraries and web vulnerabilities'
 branding:
   icon: 'shield'  
   color: 'green'
