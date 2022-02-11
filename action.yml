@@ -1,0 +1,42 @@
+name: 'SecureStack Log4j Vulnerability Analysis'
+description: 'Scans your application for the presence of serious vulnerabilities in Log4j'
+branding:
+  icon: 'shield'  
+  color: 'green'
+inputs:
+  securestack_api_key:
+    description: 'SecureStack API key - generate an API key at https://app.securestack.com'
+    required: true
+  securestack_app_id:
+    description: 'SecureStack Application ID - can be retrieved by accessing required application at https://app.securestack.com'
+    required: true
+  severity:
+    description: 'Severities lower than this value will be reported in the workflow console but will not cause an error for the action; value should be one of: critical | high | medium | low'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Pull bloodhound-cli image
+      shell: bash
+      run: docker pull securestackau/bloodhound-cli
+    - name: Run bloodhound-cli secrets
+      shell: bash
+      env:
+        BH_API_KEY: ${{ inputs.securestack_api_key }}
+        BH_APP_ID: ${{ inputs.securestack_app_id }}
+        BH_SEVERITY: ${{ inputs.severity }}
+      run: docker run -e BH_API_KEY -e BH_APP_ID -e BH_SEVERITY -v $GITHUB_WORKSPACE:/github/workspace securestackau/bloodhound-cli code -s -a $BH_APP_ID ${{ inputs.flags }}; echo $?
+    - name: Run bloodhound-cli code
+      shell: bash
+      env:
+        BH_API_KEY: ${{ inputs.securestack_api_key }}
+        BH_APP_ID: ${{ inputs.securestack_app_id }}
+        BH_SEVERITY: ${{ inputs.severity }}
+      run: docker run -e BH_API_KEY -e BH_APP_ID -e BH_SEVERITY -v $GITHUB_WORKSPACE:/github/workspace securestackau/bloodhound-cli code -t ${{ inputs.language }} -a $BH_APP_ID ${{ inputs.flags }}; echo $?
+    - name: Run bloodhound-cli exposure
+      shell: bash
+      env:
+        BH_API_KEY: ${{ inputs.securestack_api_key }}
+        BH_APP_ID: ${{ inputs.securestack_app_id }}
+        BH_SEVERITY: ${{ inputs.severity }}
+      run: docker run -e BH_API_KEY -e BH_APP_ID -e BH_SEVERITY securestackau/bloodhound-cli recon -a $BH_APP_ID ${{ inputs.flags }}; echo $?
