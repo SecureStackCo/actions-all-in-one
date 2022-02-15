@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
       - name: Secrets Analysis Step
         id: secrets
-        uses: SecureStackCo/actions-secrets@v0.1.2
+        uses: SecureStackCo/actions-secrets@v0.1.3
         with:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY }}
           securestack_app_id: ${{ secrets.SECURESTACK_APP_ID }}
@@ -24,7 +24,7 @@ jobs:
           flags: '-d 1'
       - name: Code Analysis Step
         id: code
-        uses: SecureStackCo/actions-code@v0.1.0
+        uses: SecureStackCo/actions-code@v0.1.1
         with:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY }}
           securestack_app_id: ${{ secrets.SECURESTACK_APP_ID }}
@@ -32,7 +32,7 @@ jobs:
           language: node
       - name: Exposure Analysis Step
         id: exposure
-        uses: SecureStackCo/actions-exposure@v0.1.2
+        uses: SecureStackCo/actions-exposure@v0.1.3
         with:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY }}
           securestack_app_id: ${{ secrets.SECURESTACK_APP_ID }}
