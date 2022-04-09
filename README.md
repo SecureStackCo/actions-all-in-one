@@ -1,6 +1,11 @@
 # SecureStack - One Github Action To Rule Them All
 
-A GitHub Action that provides comprehensive security coverage for your entire GitHub Action workflow! This is the SecureStack kitchen sink and combines 3 different GitHub Actions into one awesome Action to rule them all!  When you add this Action to your repository we will scan the source code for sensitive data like API keys, database credentials, passwords, etc.  We will also scan your source code for any vulnerable third-party or open source libraries with our software composition analysis.  Next if your app is running in the public cloud we'll scan it for cloud misconfigurations and inseure settings.  Finally, we will scan the public URL for your web app with our web vulnerability scanner.
+This Action provides comprehensive security coverage for your entire GitHub project workflow! This is the SecureStack kitchen sink and combines 3 different GitHub Actions into one awesome Action to rule them all!  When you add this Action to your repository it will:
+
+* Analyze source code for sensitive data like API keys, database credentials, passwords, etc
+* Analyze source code for any vulnerable third-party or open source libraries with our software composition analysis  
+* If your app is running in the public cloud we'll analyze it for cloud misconfigurations and inseure settings
+* Finally, we will scan the public URL for your web app with our web vulnerability scanner
 
 ```
 name: Example Workflow Using SecureStack All-In-One Action
