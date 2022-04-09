@@ -1,5 +1,5 @@
 name: 'SecureStack All-In-One GitHub Action'
-description: 'Scans your application for sensitive data & secrets, vulnerable third-party libraries, cloud misconfigurations and web vulnerabilities'
+description: 'Scans your app for sensitive data & secrets, vulnerable third-party libraries, cloud misconfigurations & web vulnerabilities'
 branding:
   icon: 'shield'  
   color: 'green'
