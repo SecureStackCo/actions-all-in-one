@@ -1,6 +1,6 @@
-# SecureStack Log4j Vulnerability Analysis GitHub Action
+# SecureStack All-In-One Github Action
 
-A GitHub Action that analyses your java source code for all versions of the log4j vulnerability that affect both log4j 1.x and 2.x.  You can read more about all versions of Log4j that are affected here:  https://logging.apache.org/log4j/2.x/security.html
+A GitHub Action that provides complete security coverage for your entire GitHub Action workflow! This is the SecureStack kitchen sink and combines 3 different GitHub Actions into one awesome Action to rule them all!  When you add this to GitHub Actions to your repository we will scan the source code for sensitive data like API keys, database credentials, passwords, etc.  We will also scan your source code for any vulnerable third-party or open source libraries with our software composition analysis.  Next if your app is running in the public cloud we'll scan it for cloud misconfigurations and inseure settings.  Finally, we will scan the public URL for your web app with our web vulnerability scanner.
 
 ```
 name: Example Workflow Using SecureStack All-In-One Action
@@ -41,10 +41,11 @@ jobs:
 ```
 ## Create your SecureStack API Key as GitHub Secret
 
-1. Log in to [SecureStack](https://app.securestack.com) and go to the Profile -> GENERATE KEY screen.
-2. Generate an API key and copy the value.
-3. Go to Settings for your GitHub repository and click on Secrets -> Actions at the bottom left.
-4. Create a new secret named SECURESTACK_API_KEY and paste the value from step 2 into the field.
+1. Create a SecureStack account using your GitHub credentials. You get 20 scans for free and you don't need to add a credit card.
+2. Once you are logged in go to "Settings" in the black drawer on the left, and then -> API tab.
+3. Generate an API key and copy the value.
+4. Go to Settings for your GitHub repository and click on Secrets -> Actions at the bottom left.
+5. Create a new secret named SECURESTACK_API_KEY and paste the value from step 2 into the field.
 
 ## Retreiving your SecureStack Application ID
 
