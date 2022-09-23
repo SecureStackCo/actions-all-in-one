@@ -5,7 +5,8 @@ This Action provides comprehensive security coverage for your entire GitHub proj
 * Analyze source code for sensitive data like API keys, database credentials, passwords, etc
 * Analyze source code for any vulnerable third-party or open source libraries with our software composition analysis  
 * If your app is running in the public cloud we'll analyze it for cloud misconfigurations and inseure settings
-* Finally, we will scan the public URL for your web app with our web vulnerability scanner
+* If your app has a public URL endpoint we will scan the public URL with our web vulnerability scanner
+* Finally, we will build a SBOM for your application
 
 ```
 name: Example Workflow Using SecureStack All-In-One Action
